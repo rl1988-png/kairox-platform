@@ -1,0 +1,20 @@
+# Kairox Web — Netlify (Next.js 15 monorepo)
+# Site: https://shimmering-bienenstitch-a213d0.netlify.app
+
+[build]
+  command = "corepack enable && pnpm install --frozen-lockfile && pnpm --filter @kairox/shared build && pnpm --filter @kairox/web build"
+  publish = "apps/web/.next"
+
+[build.environment]
+  NODE_VERSION = "20"
+  NEXT_TELEMETRY_DISABLED = "1"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# Browser calls same origin; Next rewrites /api/* to the real backend (set in Netlify UI).
+[context.production.environment]
+  NEXT_PUBLIC_API_URL = "https://shimmering-bienenstitch-a213d0.netlify.app"
+
+[context.deploy-preview.environment]
+  NEXT_PUBLIC_API_URL = "https://shimmering-bienenstitch-a213d0.netlify.app"

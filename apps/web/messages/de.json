@@ -1,0 +1,68 @@
+{
+  "nav": {
+    "home": "Home",
+    "trade": "Trade",
+    "wallet": "Wallet",
+    "walletBalance": "Guthaben",
+    "recharge": "Aufladen",
+    "withdraw": "Auszahlen",
+    "team": "Team",
+    "myTeam": "Mein Team",
+    "teamStats": "Statistik",
+    "account": "Konto",
+    "mine": "Mein",
+    "profile": "Profil",
+    "invite": "Einladen",
+    "bill": "Kontoauszug",
+    "bindAddress": "Adresse",
+    "password": "Passwort"
+  },
+  "home": {
+    "title": "Willkommen bei Kairox",
+    "balanceLabel": "Verfügbares Guthaben",
+    "announcement": "Ankündigung",
+    "platformNews": "Plattform-News",
+    "platformNewsBody": "Willkommen bei Kairox AI — sicheres Trading, On-Chain-Aufladung und Team-Provisionen. Aktiviere dein Konto mit 30 USDT und werde Official ab 50 USDT Einzahlung.",
+    "bonus": "7 USDT Registrierungsbonus",
+    "referral": "Referral-Stufen: 50 / 100 / 300 / 1000 USDT",
+    "trial": "72h Trial – 30 USDT zum Aktivieren",
+    "actionTrade": "Trade",
+    "actionTradeSub": "VIP-Stufen",
+    "actionRecharge": "Aufladen",
+    "actionRechargeSub": "TRC20 USDT",
+    "actionWithdraw": "Auszahlen",
+    "actionWithdrawSub": "TRC20",
+    "actionWallet": "Wallet",
+    "actionWalletSub": "Guthaben",
+    "actionTeam": "Team",
+    "actionTeamSub": "Referrals",
+    "actionInvite": "Einladen",
+    "actionInviteSub": "QR & Code"
+  },
+  "wallet": {
+    "available": "Verfügbar",
+    "locked": "Gesperrt",
+    "bill": "Kontoauszug"
+  },
+  "team": {
+    "stats": "Team-Statistik",
+    "members": "Mitglieder",
+    "unfinished": "Unvollständig",
+    "noMembers": "Keine Mitglieder für diesen Filter gefunden."
+  },
+  "common": {
+    "loading": "Laden…",
+    "retry": "Erneut versuchen",
+    "empty": "Keine Einträge",
+    "back": "Zurück",
+    "next": "Weiter",
+    "invalid": "Ungültig"
+  },
+  "sidebar": {
+    "main": "Hauptmenü",
+    "more": "Weitere",
+    "admin": "Administration",
+    "logout": "Abmelden",
+    "download": "App installieren"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "@kairox/api",
+  "version": "2.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "uvicorn kairox_api.main:app --reload --host 0.0.0.0 --port 8000",
+    "lint": "ruff check src tests && ruff format --check src tests",
+    "format": "ruff format src tests",
+    "typecheck": "mypy src/kairox_api/models src/kairox_api/repositories",
+    "test": "pytest --cov=kairox_api.features --cov=kairox_api.repositories --cov-report=term-missing --cov-fail-under=80",
+    "migrate": "alembic upgrade head"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "kairox-platform",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Kairox Platform v2 — crypto trading & wallet monorepo",
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "format": "turbo run format",
+    "typecheck": "turbo run typecheck",
+    "migrate": "pnpm --filter @kairox/api migrate",
+    "seed": "pnpm --filter @kairox/api seed"
+  },
+  "devDependencies": {
+    "@netlify/plugin-nextjs": "^5.9.4",
+    "turbo": "^2.3.3",
+    "prettier": "^3.4.2"
+  },
+  "packageManager": "pnpm@9.15.0",
+  "engines": {
+    "node": ">=20"
+  }
+}

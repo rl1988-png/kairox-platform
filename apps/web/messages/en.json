@@ -1,0 +1,68 @@
+{
+  "nav": {
+    "home": "Home",
+    "trade": "Trade",
+    "wallet": "Wallet",
+    "walletBalance": "Balance",
+    "recharge": "Recharge",
+    "withdraw": "Withdraw",
+    "team": "Team",
+    "myTeam": "My Team",
+    "teamStats": "Stats",
+    "account": "Account",
+    "mine": "Mine",
+    "profile": "Profile",
+    "invite": "Invite",
+    "bill": "Statement",
+    "bindAddress": "Address",
+    "password": "Password"
+  },
+  "home": {
+    "title": "Welcome to Kairox",
+    "balanceLabel": "Available Balance",
+    "announcement": "Announcement",
+    "platformNews": "Platform News",
+    "platformNewsBody": "Welcome to Kairox AI — secure trading, on-chain recharge and team commissions. Activate your account with 30 USDT and become Official from 50 USDT deposit.",
+    "bonus": "7 USDT registration bonus",
+    "referral": "Referral tiers: 50 / 100 / 300 / 1000 USDT",
+    "trial": "72h trial - activate with 30 USDT",
+    "actionTrade": "Trade",
+    "actionTradeSub": "VIP levels",
+    "actionRecharge": "Recharge",
+    "actionRechargeSub": "TRC20 USDT",
+    "actionWithdraw": "Withdraw",
+    "actionWithdrawSub": "TRC20",
+    "actionWallet": "Wallet",
+    "actionWalletSub": "Balance",
+    "actionTeam": "Team",
+    "actionTeamSub": "Referrals",
+    "actionInvite": "Invite",
+    "actionInviteSub": "QR & Code"
+  },
+  "wallet": {
+    "available": "Available",
+    "locked": "Locked",
+    "bill": "Statement"
+  },
+  "team": {
+    "stats": "Team statistics",
+    "members": "Members",
+    "unfinished": "Incomplete",
+    "noMembers": "No members found for this filter."
+  },
+  "common": {
+    "loading": "Loading...",
+    "retry": "Retry",
+    "empty": "No entries",
+    "back": "Back",
+    "next": "Next",
+    "invalid": "Invalid"
+  },
+  "sidebar": {
+    "main": "Main menu",
+    "more": "More",
+    "admin": "Administration",
+    "logout": "Log out",
+    "download": "Install app"
+  }
+}

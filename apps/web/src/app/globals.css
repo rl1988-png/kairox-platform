@@ -1,0 +1,279 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --kairox-pink: #fc81b9;
+  --kairox-pink-dark: #e85a9d;
+  --kairox-pink-soft: rgba(251, 224, 238, 0.2);
+  --bg-primary: #0b1220;
+  --bg-secondary: #121a2b;
+  --bg-tertiary: #0d1424;
+  --border: #243049;
+  --text-primary: #e8eefc;
+  --text-muted: #9aa8c7;
+  --link: #8eb4ff;
+  --success: #3dd68c;
+  --warning: #ffcc66;
+  --danger: #ff6b7a;
+  --overlay: #051134;
+}
+
+body {
+  @apply bg-bg-primary font-sans text-text-primary antialiased;
+  font-feature-settings: 'kern' 1, 'liga' 1;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(252, 129, 185, 0.12) 0%, transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(142, 180, 255, 0.06) 0%, transparent 40%);
+}
+
+@layer components {
+  .kairox-card {
+    @apply rounded-2xl border border-border/80 bg-bg-secondary/80 p-5 shadow-card backdrop-blur-sm;
+  }
+
+  .kairox-card-glow {
+    @apply kairox-card border-kairox-pink/20 shadow-glow;
+  }
+
+  .kairox-input {
+    @apply w-full rounded-[14px] border border-transparent bg-[rgba(251,224,238,0.12)] px-4 py-3
+      text-base font-medium text-text-primary placeholder:text-white/70 focus:border-kairox-pink/50
+      focus:outline-none focus:ring-2 focus:ring-kairox-pink/30;
+  }
+
+  .kairox-input-with-icon {
+    @apply pl-[3.25rem];
+  }
+
+  .kairox-btn-pill {
+    @apply w-full rounded-full bg-gradient-to-r from-kairox-pink to-kairox-pink-dark py-3.5 text-base
+      font-semibold text-bg-primary shadow-glow transition hover:brightness-110 active:scale-[0.99];
+  }
+
+  .auth-bg {
+    background: url('/assets/kairox/login-bg.jpg') center top / cover no-repeat;
+  }
+
+  .auth-bg-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(5, 17, 52, 0.35) 0%,
+      rgba(11, 18, 32, 0.92) 45%,
+      rgba(11, 18, 32, 1) 100%
+    );
+  }
+
+  .login-tabs {
+    @apply mb-6 flex gap-6 border-b border-white/10 pb-2;
+  }
+
+  .login-tab {
+    @apply cursor-pointer pb-1 text-base font-medium text-text-muted transition;
+  }
+
+  .login-tab-active {
+    @apply border-b-2 border-kairox-pink text-kairox-pink;
+  }
+
+  .action-tile {
+    @apply flex flex-col items-center justify-center gap-2 rounded-2xl border border-border/60
+      bg-[rgba(251,224,238,0.08)] p-4 text-center transition hover:border-kairox-pink/40
+      hover:bg-kairox-pink/10 active:scale-[0.98];
+  }
+
+  .vip-card {
+    @apply rounded-2xl border border-border/60 bg-[rgba(251,224,238,0.06)] p-5 text-left
+      transition hover:border-kairox-pink/45 hover:bg-kairox-pink/10 active:scale-[0.98];
+  }
+
+  .vip-card-disabled {
+    @apply cursor-not-allowed opacity-45 hover:border-border/60 hover:bg-[rgba(251,224,238,0.06)]
+      active:scale-100;
+  }
+
+  .invite-code-box {
+    @apply rounded-xl border border-kairox-pink/35 bg-kairox-pink/10 px-4 py-5 text-center;
+  }
+
+  .stat-value {
+    @apply font-mono text-xl font-bold text-success sm:text-2xl;
+  }
+
+  .data-table {
+    @apply w-full text-sm;
+  }
+
+  .data-table thead tr {
+    @apply border-b border-border/80 text-left text-text-muted;
+  }
+
+  .data-table th {
+    @apply pb-2 pr-4 font-medium;
+  }
+
+  .data-table tbody tr {
+    @apply border-b border-border/40 transition-colors hover:bg-white/[0.02];
+  }
+
+  .data-table td {
+    @apply py-2.5 pr-4;
+  }
+
+  .trial-banner {
+    @apply rounded-2xl border border-kairox-pink/30 bg-gradient-to-r from-kairox-pink/15
+      to-transparent p-4 text-sm;
+  }
+
+  /* kairox.cc bottom tab bar (.wa-footer) */
+  .wa-footer {
+    @apply fixed bottom-0 left-0 right-0 z-40 flex items-center justify-around
+      rounded-t-[20px] border-t border-white/5 pt-6 text-[10px];
+    height: 75px;
+    background: rgba(28, 26, 27, 0.98);
+    backdrop-filter: blur(12px);
+  }
+
+  .wa-footer .item {
+    @apply flex h-full w-[20%] flex-col items-center justify-start gap-1 text-text-muted;
+  }
+
+  .wa-footer .item .icon {
+    @apply flex h-6 w-6 items-center justify-center;
+  }
+
+  .wa-footer .item .icon-trade {
+    @apply -mt-1 h-[50px] w-[50px];
+  }
+
+  .wa-footer .item .text {
+    @apply text-center text-[10px] leading-tight text-[rgba(229,229,229,1)];
+  }
+
+  .wa-footer .item.active .text {
+    @apply text-kairox-pink;
+  }
+
+  .wa-footer .item.active .icon {
+    @apply text-kairox-pink;
+  }
+
+  .login-yinsi {
+    @apply text-center text-sm;
+  }
+
+  /* Desktop sidebar — pro layout */
+  .app-sidebar {
+    @apply sticky top-0 flex h-screen w-[17.5rem] shrink-0 flex-col overflow-hidden border-r
+      border-border/70 bg-bg-secondary/95 backdrop-blur-xl;
+    background-image: linear-gradient(
+      180deg,
+      rgba(252, 129, 185, 0.06) 0%,
+      transparent 28%,
+      transparent 100%
+    );
+  }
+
+  .app-sidebar-brand {
+    @apply shrink-0 border-b border-border/60 px-5 py-5;
+  }
+
+  .app-sidebar-brand-link {
+    @apply flex items-center gap-3 transition-opacity hover:opacity-90;
+  }
+
+  .app-sidebar-nav {
+    @apply min-h-0 flex-1 overflow-y-auto overscroll-contain px-3 py-3 pb-8;
+    scrollbar-gutter: stable;
+  }
+
+  .app-sidebar-group {
+    @apply mb-4 last:mb-0;
+  }
+
+  .app-sidebar-section {
+    @apply sticky top-0 z-10 mb-2 border-b border-kairox-pink/20 bg-bg-secondary/95 px-3 pb-2
+      pt-4 text-[11px] font-semibold uppercase tracking-[0.12em] text-kairox-pink;
+  }
+
+  .app-sidebar-group:first-child .app-sidebar-section {
+    @apply pt-1;
+  }
+
+  .app-sidebar-link {
+    @apply flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-text-muted
+      transition-all hover:bg-white/[0.04] hover:text-text-primary;
+  }
+
+  .app-sidebar-link-active {
+    @apply border border-kairox-pink/25 bg-kairox-pink/10 text-kairox-pink shadow-glow;
+  }
+
+  .app-sidebar-link-icon {
+    @apply flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/[0.04]
+      text-current;
+  }
+
+  .app-sidebar-link-active .app-sidebar-link-icon {
+    @apply bg-kairox-pink/15;
+  }
+
+  .app-sidebar-footer {
+    @apply shrink-0 border-t border-border/60 bg-bg-secondary/95 p-4;
+  }
+
+  .app-sidebar-user {
+    @apply mb-3 flex items-center gap-3 rounded-2xl border border-border/50 bg-bg-primary/50 p-3;
+  }
+
+  .app-sidebar-avatar {
+    @apply flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br
+      from-kairox-pink to-kairox-pink-dark text-sm font-bold text-bg-primary;
+  }
+
+  .app-sidebar-meta-link {
+    @apply block text-center text-xs text-link transition hover:underline;
+  }
+}
+
+@layer utilities {
+  .animate-kairox-float {
+    animation: kairox-float 3.5s ease-in-out infinite;
+  }
+
+  /* Mobile: scrollen erlauben, Scrollleiste ausblenden (App-Feel) */
+  @media (max-width: 1023px) {
+    html,
+    body,
+    main,
+    .login-tabs,
+    .overflow-x-auto,
+    .overflow-y-auto,
+    .overflow-auto {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    html::-webkit-scrollbar,
+    body::-webkit-scrollbar,
+    main::-webkit-scrollbar,
+    .login-tabs::-webkit-scrollbar,
+    .overflow-x-auto::-webkit-scrollbar,
+    .overflow-y-auto::-webkit-scrollbar,
+    .overflow-auto::-webkit-scrollbar {
+      display: none;
+      width: 0;
+      height: 0;
+    }
+  }
+}
+
+@keyframes kairox-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}

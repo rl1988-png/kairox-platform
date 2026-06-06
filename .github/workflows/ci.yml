@@ -1,0 +1,93 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: kairox
+          POSTGRES_PASSWORD: test
+          POSTGRES_DB: kairox_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+      redis:
+        image: redis:7-alpine
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    env:
+      DATABASE_URL: postgresql+asyncpg://kairox:test@localhost:5432/kairox_test
+      REDIS_URL: redis://localhost:6379/0
+      JWT_SECRET: ci-test-jwt-secret-min-32-characters-long
+      CSRF_SECRET: ci-test-csrf-secret-key-here
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: pnpm
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Node dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install Python dependencies
+        run: |
+          pip install -e ./packages/ai-gateway
+          pip install -e "./apps/api[dev]"
+
+      - name: Test AI Gateway package
+        run: cd packages/ai-gateway && pytest -v
+
+      - name: Lint (JS/TS)
+        run: pnpm lint
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Lint (Python)
+        run: cd apps/api && ruff check . && ruff format --check .
+
+      - name: Typecheck (Python)
+        run: cd apps/api && mypy src/kairox_api
+
+      - name: Migrate DB
+        run: cd apps/api && alembic upgrade head
+
+      - name: Test (Python)
+        run: cd apps/api && pytest --cov=kairox_api.features --cov=kairox_api.repositories --cov-report=term-missing --cov-fail-under=80
+
+      - name: Test (Web)
+        run: pnpm --filter @kairox/web test
+
+      - name: Build
+        run: pnpm build
