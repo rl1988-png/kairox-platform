@@ -1,6 +1,8 @@
 # Kairox Platform v2
 
-Professional crypto trading and wallet platform — rebuild of [kairox.cc](https://kairox.cc).
+Experimental side project / prototype rebuild of [kairox.cc](https://kairox.cc).
+
+> **Status:** This repository is not part of my core portfolio and is not production-validated. The codebase contains a FastAPI/Next.js implementation and automated checks, but I have not personally completed a full end-to-end verification of all functionality. Treat it as an experimental learning/AI-assisted side project, not as evidence of a production-ready system.
 
 ## Monorepo Structure
 
@@ -27,9 +29,9 @@ pnpm dev
 
 See [docs/getting-started.md](./docs/getting-started.md) for full setup.
 
-## High-End Delivery Standard
+## Development workflow encoded in the repository
 
-Every production-facing change follows a build-review-improve loop:
+The repository is structured around a build-review-improve loop:
 
 1. Keep the change scoped to one release slice.
 2. Update the relevant docs in the same slice.
@@ -37,16 +39,15 @@ Every production-facing change follows a build-review-improve loop:
 4. Have a second agent or reviewer inspect the result before moving to the next slice.
 5. Treat review findings as work to resolve, not as optional notes.
 
-Completed hardening slices:
+Implemented hardening work includes:
 
 - Admin VIP-adjust audit migration drift fixed with a regression test.
-- Protected-route rate limits now fail closed when Redis is unavailable.
-- API container startup now runs `alembic upgrade head` before serving traffic.
-- Production runtime settings fail fast on unsafe secrets, URLs, CORS, Tron, or logging config.
-- Withdrawals now separate broadcast (`processing`) from confirmed ledger debit.
+- Protected-route rate limits fail closed when Redis is unavailable.
+- API container startup runs `alembic upgrade head` before serving traffic.
+- Runtime settings fail fast on unsafe secrets, URLs, CORS, Tron, or logging config.
+- Withdrawals separate broadcast (`processing`) from confirmed ledger debit.
 
-Current hardening focus: TronGrid provider resilience, frontend design quality, and
-end-to-end smoke tests.
+Open verification/hardening areas include TronGrid provider resilience, frontend design quality, and end-to-end smoke testing.
 
 ## License
 
